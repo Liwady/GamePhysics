@@ -1,11 +1,15 @@
 #pragma once
 #include <glm/vec2.hpp>
+#include <vector>
+#include "force_field.h"
 
 class Circle {
 public:
     Circle(const glm::vec2& pos = {0.0f, 0.0f}, float r = 1.0f, const glm::vec2& vel = {0.0f, 0.0f});
 
     void Update(float deltaTime);
+    void ApplyForce(const glm::vec2& force);
+    void ApplyForceField(ForceField* forceField);
 
     void SetPosition(const glm::vec2& p) { position = p; }
     void SetVelocity(const glm::vec2& v) { velocity = v; }
@@ -19,6 +23,6 @@ private:
     glm::vec2 position; 
     glm::vec2 velocity;
     float radius;      
-
+    glm::vec2 accumulatedForce; 
     static constexpr float g = -9.81f; 
 };
