@@ -1,0 +1,24 @@
+#pragma once
+#include <glm/vec2.hpp>
+
+class Circle {
+public:
+    Circle(const glm::vec2& pos = {0.0f, 0.0f}, float r = 1.0f, const glm::vec2& vel = {0.0f, 0.0f});
+
+    void Update(float deltaTime);
+
+    void SetPosition(const glm::vec2& p) { position = p; }
+    void SetVelocity(const glm::vec2& v) { velocity = v; }
+
+    const glm::vec2& GetPosition() const { return position; }
+    const glm::vec2& GetVelocity() const { return velocity; }
+
+    float GetRadius() const { return radius; }
+
+private:
+    glm::vec2 position; 
+    glm::vec2 velocity;
+    float radius;      
+
+    static constexpr float g = -9.81f; 
+};
