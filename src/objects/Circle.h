@@ -10,6 +10,7 @@ public:
     void Update(float deltaTime);
     void ApplyForce(const glm::vec2& force);
     void ApplyForceField(ForceField* forceField);
+    void ApplyImpulse(const glm::vec2& impulse); 
 
     void SetPosition(const glm::vec2& p) { position = p; }
     void SetVelocity(const glm::vec2& v) { velocity = v; }

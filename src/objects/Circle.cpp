@@ -25,6 +25,9 @@ void Circle::ApplyForce(const glm::vec2& force) {
 }
 
 void Circle::ApplyForceField(ForceField* forceField) {
-    if (forceField->IsInside(position)) 
 		ApplyForce(forceField->GetForce());
+}
+
+void Circle::ApplyImpulse(const glm::vec2& impulse) {
+    velocity += impulse / mass;
 }
