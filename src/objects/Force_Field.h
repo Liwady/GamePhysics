@@ -5,8 +5,6 @@ class ForceField {
 public:
     ForceField(const glm::vec2& position, float radius, const glm::vec2& force);
 
-    bool IsInside(const glm::vec2& point) const;
-
     const glm::vec2& GetPosition() const;
     const glm::vec2& GetForce() const; 
     float GetRadius() const; 

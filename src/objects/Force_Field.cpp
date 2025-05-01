@@ -3,11 +3,6 @@
 
 ForceField::ForceField(const glm::vec2& position, float radius, const glm::vec2& force) : position(position), radius(radius), force(force) {}
 
-bool ForceField::IsInside(const glm::vec2& point) const 
-{
-    return glm::distance(position, point) <= radius;
-}
-
 const glm::vec2& ForceField::GetPosition() const {
     return position;
 }
