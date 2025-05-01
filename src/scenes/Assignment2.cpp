@@ -14,10 +14,7 @@ void Assignment2::Update(float deltaTime) {
     if (simulate) 
     {
         for (size_t i = 0; i < forceFields.size(); ++i) 
-        {
-            forceFields[i].IsInside(circle.GetPosition());
 		    circle.ApplyForceField(&forceFields[i]);
-		}
         circle.Update(deltaTime);
     }
 }
@@ -39,6 +36,7 @@ void Assignment2::DrawGUI() {
         glm::vec2 pos = circle.GetPosition();
         glm::vec2 vel = circle.GetVelocity();
         float r = circle.GetRadius();
+        float m = circle.GetMass();
 
         if (ImGui::DragFloat2("Position", &pos.x, 0.05f))
             circle.SetPosition(pos);
@@ -46,8 +44,11 @@ void Assignment2::DrawGUI() {
         if (ImGui::DragFloat2("Velocity", &vel.x, 0.05f))
             circle.SetVelocity(vel);
 
-        ImGui::DragFloat("Radius", &r, 0.05f, 0.1f, 10.0f);
-        circle = Circle(pos, r, vel);
+        if (ImGui::DragFloat("Radius", &r, 0.05f, 0.1f, 10.0f))
+			circle.SetRadius(r);
+        
+        if (ImGui::DragFloat("Mass", &m, 0.05f, 0.1f, 10.0f))
+            circle.SetMass(m);
 
         for (size_t i = 0; i < forceFields.size(); ++i) {
             ImGui::Separator();
