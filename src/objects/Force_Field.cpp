@@ -27,3 +27,16 @@ void ForceField::SetPosition(const glm::vec2& position) {
 void ForceField::SetRadius(float radius) {
     this->radius = radius;
 }
+
+float ForceField::GetDragCoefficient() const {
+    return dragCoefficient;
+}
+
+void ForceField::SetDragCoefficient(float drag) {
+    dragCoefficient = drag;
+}
+
+glm::vec2 ForceField::ComputeForce(const glm::vec2& objPos, const glm::vec2& objVel) const {
+    glm::vec2 drag = -dragCoefficient * objVel;
+    return force + drag;
+}

@@ -12,9 +12,14 @@ public:
     void SetForce(const glm::vec2& force);
     void SetPosition(const glm::vec2& position);
     void SetRadius(float radius);  
+    void SetDragCoefficient(float drag);
+    float GetDragCoefficient() const;
 
-private:
+    glm::vec2 ComputeForce(const glm::vec2& objPos, const glm::vec2& objVel) const;
+
+    private:
     glm::vec2 position; 
     float radius;      
-    glm::vec2 force;   
+    glm::vec2 force; 
+    float dragCoefficient = 0.0f; 
 };

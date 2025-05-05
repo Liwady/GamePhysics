@@ -6,7 +6,8 @@ Circle::Circle(const glm::vec2& pos, float r, const glm::vec2& vel, float m) : p
 
 void Circle::Update(float dt) {
 
-    ApplyForce({0.0f, g*mass});
+    if (useGravity)
+        ApplyForce({0.0f, g*mass});
 
     glm::vec2 acceleration = accumulatedForce / mass; // F = m*a => a = F/m
     velocity += acceleration * dt;

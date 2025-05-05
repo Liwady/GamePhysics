@@ -17,6 +17,7 @@ public:
     void SetVelocity(const glm::vec2& v) { velocity = v; }
     void SetMass(float m) { mass = m; }
     void SetRadius(float r) { radius = r; }
+    void SetUseGravity(bool use) { useGravity = use; }
 
     const glm::vec2& GetPosition() const { return position; }
     const glm::vec2& GetVelocity() const { return velocity; }
@@ -31,4 +32,5 @@ private:
     float mass;
     glm::vec2 accumulatedForce; 
     static constexpr float g = -9.81f; 
+    bool useGravity = true;
 };
